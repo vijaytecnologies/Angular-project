@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+           
+    <div class="container ">
+       
+        <form [formGroup]="loginForm">
+           
+            <input  class="form-control" id="uName" type="text"  placeholder="Username" formControlName="username" >
+            <div *ngIf="loginForm.get('username').touched && loginForm.get('username').hasError('required')">username required</div>
+            <div *ngIf="loginForm.get('username').touched && loginForm.get('username').hasError('minlength')">minimum length of 3 charectors required</div>
+
+            <input id="pwd" type="password" class="form-control" placeholder="password" formControlName="password" >
+            
+
+            <button type="submit" class="btn btn-primary " id="btn" (click)="login()">Login</button>
+
+        </form>
+    </div>
+</body>
+</html>

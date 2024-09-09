@@ -1,0 +1,24 @@
+.navbar{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    height: 100px;
+    background-color:#0F1111 ;
+    color:black
+    
+}
+
+.items{
+    text-decoration: none;
+    font-size: larger;
+    font-family:Arial, Helvetica, sans-serif;
+    color: white !important;
+    
+}
+.items:hover {
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+}

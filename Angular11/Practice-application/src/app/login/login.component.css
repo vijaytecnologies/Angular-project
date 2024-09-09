@@ -1,0 +1,47 @@
+
+.login{
+   
+    width: 50%;
+    height: 400px;
+    margin: auto;
+}
+form{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15%;
+}
+.form-control{
+    width: 50%;
+    margin-top: 25px;
+}
+.loginForm{
+    
+    
+    width: 50%;
+    height: 30px;
+    margin-top: 25px;
+}
+#btn{
+    background-color: #0866ff;
+    color: white;
+}
+input.ng-touched.ng-invalid{
+    border: 2px solid red;
+}
+input.ng-touched.ng-valid{
+    border:2px solid green
+}
+.btn{
+    width: 50%;
+    margin-top: 25px;
+}
+/* app.component.css */
+.background-image {
+    height: 500px;
+    width: 100%;
+    background-image: url('/assets/login.avif'); /* Adjust the path based on your file structure */
+    background-size: cover; /* Adjust sizing as needed */
+    background-position: center; /* Adjust positioning as needed */
+    /* Optionally, you can add more styles here */
+}

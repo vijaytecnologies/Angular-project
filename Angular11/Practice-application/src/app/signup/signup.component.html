@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+</head>
+<body>
+    <div class="signup">
+        <form id="myForm" #signup="ngForm" (ngSubmit)="display()">
+            <!--first name-->
+            <label for="firstName">First Name:</label>
+             <input type="text" id="firstName" name="firstName" #fn="ngModel" ngModel minlength="3" required ><br>
+             <p  class="error" *ngIf="fn.touched && fn.errors?.required">firstname is required</p>
+             <p  class="error" *ngIf="fn.touched && fn.errors?.minlength">firstname must contain minimum 3 letters</p>
+
+            <!--Last name-->
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" #ln="ngModel" ngModel  ><br>
+            
+
+            <!--Email-->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" ngModel #email="ngModel"><br>
+            
+    
+            <label for="number">Contact no:</label>
+            <input type="text" id="number" name="contact" ngModel ><br>
+
+
+            <label for="pwd">create password:</label>
+            <input type="password" id="pwd" name="password" ngModel><br>
+            
+        
+           <button type="submit" class="btn btn-primary">Sign up</button>
+           <p *ngIf="message" id="sumbitMessage">Submitted successfully</p>
+        </form>
+    </div>
+</body>
+</html>

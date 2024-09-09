@@ -1,0 +1,30 @@
+.signup{
+    display: flex;
+    height: 500px;
+    width: 500px;
+    justify-content: center;
+    margin-left: 50px;
+}
+#myForm{
+    display: flex;
+    flex-direction: column;
+    width:auto;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.error{
+    color: red;
+    font-size: small;
+}
+input.ng-touched.ng-invalid{
+    border: 1px solid red;
+    background-color: white;
+}
+input.ng-touched.ng-valid{
+    border: 1px solid green;
+    background-color: white;
+}
+#sumbitMessage{
+    color: green;
+}

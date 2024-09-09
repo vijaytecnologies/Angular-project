@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <form id="myForm" [formGroup]="contactForm" (ngSubmit)=' onSubmitRequest()'>
+            <!--Full Name-->
+            <input type="text" placeholder="username*" class="form-control mt-4" formControlName="fullName">
+            <div *ngIf="contactForm.get('fullName').touched && contactForm.get('fullName').hasError('required')">
+                username required</div>
+            <div *ngIf="contactForm.get('fullName').touched && contactForm.get('fullName').hasError('uppercase')">
+                alteast one capital letter required</div>
+            <!--password field-->
+
+            <input type="password" id="inputPassword6" class="form-control" placeholder="password"
+                formControlName="password">
+
+            <!--Gender input-->
+            <div>
+                <label class="col-form-label">Gender</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input id="male" type="radio" name="gender" class="form-check-input" value="Male"
+                    formControlName="gender"><label for="male" class="form-check-label">Male</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input id="female" type="radio" name="gender" class="form-check-input" value="Female"
+                    formControlName="gender"><label for="female" class="form-check-label">Female</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input id="other" type="radio" name="gender" class="form-check-input" value="Other"
+                    formControlName="gender"><label for="other" class="form-check-label">Other</label>
+            </div>
+            <!--DOB-->
+            <div class="row g-3 align-items-center mt-4">
+                <div class="col-auto">
+                    <label for="dob" class="col-form-label">Date of birth</label>
+                </div>
+                <div class="col-auto">
+                    <input type="date" id="dob" class="form-control" formControlName="date">
+                </div>
+            </div>
+            <!--Email input-->
+            <input type="email" placeholder="email*" class="form-control" formControlName="email">
+            <div *ngIf="contactForm.get('email').touched &&contactForm.get('email').hasError('required')">Email required
+            </div>
+            <!--contact info-->
+            <div class="row">
+                <div class="col">
+                    <input type="text" placeholder="contact number" class="form-control" formControlName="contact">
+                    <div *ngIf="contactForm.get('contact').touched && contactForm.get('contact').hasError('notNumber')">
+                        Only numbers allowed</div>
+                </div>
+                <div class="col">
+                    <!--country select-->
+                    <select class="form-select" class="form-control" formControlName="selectCountry">
+                        <option selected>Select Country</option>
+                        <option value="US">United states</option>
+                        <option value="IND">India</option>
+                        <option value="AUS">Australia</option>
+                        <option value="CN">China</option>
+                        <option value="UK">United kingdom</option>
+
+                    </select>
+                </div>
+            </div>
+
+
+            <!--Text area-->
+            <textarea class="form-control" rows="3" placeholder="Enter your request"
+                formControlName="request"></textarea>
+            <!--Checkbox-->
+            <div class="form-check">
+                <input type="checkbox" id="cBox" class="form-check-input" formControlName="checkbox">
+                <label for="cBox" class="form-check-label">provided information is correct</label>
+            </div>
+
+
+            <!--Submit button-->
+            <div class="row justify-content-md-center">
+                <button type="submit" class="btn btn-primary mt-4">Send request</button>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="display" class="container">
+        <table class="table table-striped" border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>password</th>
+                    <th>Gender</th>
+                    <th>DOB</th>
+                    <th>Email</th>
+                    <th>Contact number</th>
+                    <th>Country</th>
+                    <th>User request</th>
+                    <th>Action</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let req of requestList;let i=index">
+                    <td>{{req.fullName}}</td>
+                    <td>{{req.password}}</td>
+                    <td>{{req.gender}}</td>
+                    <td>{{req.date}}</td>
+
+
+                    <td>{{req.email}}</td>
+                    <td>{{req.contact}}</td>
+                    <td>{{req.selectCountry}}</td>
+                    <td>{{req.request}}</td>
+                    <td><button class="btn btn-primary" (click)="editForm(req)">Edit</button></td>
+                    <td><button class="btn btn-danger" (click)="delReq(i)">Delete</button></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

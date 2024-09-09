@@ -1,0 +1,21 @@
+
+
+    <div class="row w-100 navbar" >
+        <div class="col items " *ngIf="isloggedIn"><a routerLink="/home">Home</a></div>
+        <div class="col  items" *ngIf="isloggedIn"><a routerLink="/profile">Profile</a></div>
+        <div class="col items" *ngIf="isloggedIn"><a routerLink="/products">Products</a></div>
+
+        <div class="col items" *ngIf="isloggedIn"><a routerLink="/settings">Settings</a></div>
+        <div class="col items" *ngIf="!isloggedIn"><a routerLink="/signup">Signup</a></div>
+        <div class="col items" *ngIf="!isloggedIn"><a routerLink="/login">Login</a></div>
+
+        <div class="col items" *ngIf="isloggedIn"><a routerLink="/contact">Contact us</a></div>
+        <input class="col-4 items form-control" placeholder="search here..." type="text" #userInput>
+        <button type="submit" class="btn btn-primary">search</button>
+
+    </div>
+   
+    
+
+
+<router-outlet></router-outlet>

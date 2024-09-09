@@ -1,0 +1,49 @@
+<div class="parentContainer">
+    <div class="userContainer">
+        <div class="user1" (click)="getUsersData()" role="button"><a routerLink="/home">All users</a></div>
+        <div class="user"><a routerLink="/newUser">Create new user</a></div>
+        <div class="user">Update user</div>
+        <div class="user">Delete user</div>
+
+    </div>
+
+    <div *ngIf="users">
+        <table class="table">
+            <thead>
+                <th>User name</th>
+                <th>Gender</th>
+                <th>Date of birth</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>country</th>
+                <th>Edit user data</th>
+                <th>Delete user</th>
+
+            </thead>
+            <tbody>
+                <tr *ngFor="let u of users">
+                    <td>{{u.fullName}}</td>
+                    <td>{{u.gender}}</td>
+                    <td>{{u.date}}</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.contact}}</td>
+                    <td>{{u.selectCountry}}</td>
+                    <td>
+                        <button class="btn btn-primary">Edit</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" (click)=" deleteUser(id)">Delete</button>
+                    </td>
+
+
+
+
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<h1>{{demo}}</h1>
+<button (click)="onClick()">click me</button>

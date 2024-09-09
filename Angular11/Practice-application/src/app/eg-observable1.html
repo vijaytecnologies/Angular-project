@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="display"></h2>
+    <script>
+        let myObserver = new Observable((data)=>{
+    data.next('hey good morning '),
+    setTimeout(()=>{
+        data.next('hey good afternoon ')
+
+    },2000);
+    setTimeout(()=>{
+        data.next('hey good evening,have a nice day')
+
+    },2000)
+
+
+    })
+    //subscribe
+    myObserver.subscribe({
+       next(res) {
+        document.getElementById('display').innerHTML = res
+       }
+    })
+
+    </script>
+</body>
+</html>

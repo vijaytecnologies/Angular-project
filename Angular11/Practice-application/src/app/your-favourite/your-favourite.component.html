@@ -1,0 +1,28 @@
+
+<h3 style="color: red;">Click on the button to get data</h3>
+<button (click)="getData()" class="btn btn-primary">click me</button>
+<div *ngIf="products" class="container">
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>s.no</th>
+        <th>product</th>
+        <th>price</th>
+        <th>rating</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products,index as i">
+        <td>{{i+1}}</td>
+        <td>{{product.title}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.rating.rate}}</td>
+         <td routerLink="/product/{{product.title}}"><button>edit</button></td>
+       <!-- <td (click)="display(product)"><button>edit</button></td>-->
+
+
+    </tr>
+    </tbody>
+</table>
+</div>
